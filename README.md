@@ -32,7 +32,7 @@ A high-performance, editorial digital portfolio built with **Astro 5**, **TypeSc
 
 ```bash
 ├── public/
-│   ├── icons/             # Brand SVGs (TypeScript, React, Next.js, Node.js, etc.)
+│   ├── icons/             # Official brand SVGs (TypeScript, React, Next.js, Node.js, GitHub, Instagram, WhatsApp, etc.)
 │   ├── images/            # Static media fallbacks
 │   ├── robots.txt         # Search crawler directives
 │   └── favicon.svg        # Custom monogram favicon
@@ -109,7 +109,7 @@ npm run preview
 
 ## 💼 Featured Projects
 
-1. **MixChat:** Modern social communication platform with voice, video, media feed, and creator profiles.
+1. **MixChat:** Modern social communication platform with voice channels, photo/video feeds, and creator profiles.
 2. **Rahafit:** AI-powered personalized fitness, nutrition, and daily workout companion platform.
 3. **GoldPro ERP:** Enterprise management, multi-tenant operations, and logistics platform.
 4. **GoldPro Platform & Imran AI:** Corporate construction platform featuring conversational AI engineering consultant.
@@ -119,9 +119,9 @@ npm run preview
 ## 📬 Contact & Connect
 
 - **Author:** Asem Abdelal
-- **Email:** [asem@asemabdelal.dev](mailto:asem@asemabdelal.dev)
-- **GitHub:** [@asemabdelal](https://github.com/asemabdelal)
-- **Website:** [https://asemabdelal.dev](https://asemabdelal.dev)
+- **WhatsApp:** [+965 94135865](https://wa.me/96594135865)
+- **GitHub:** [@asemabdelall](https://github.com/asemabdelall)
+- **Instagram:** [@asemabdelall](https://www.instagram.com/asemabdelall/)
 
 ---
 
