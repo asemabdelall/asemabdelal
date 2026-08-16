@@ -4,22 +4,20 @@ const experienceList = [
     period: '2026',
     focus: 'Product Engineering',
     subtitle: 'AI & Scalable Web Platforms',
-    description: 'Architecting end-to-end digital products, integrating intelligent AI workflows, and building high-performance, conversion-oriented web platforms.',
-    deliverables: ['AI Integrations', 'Product Architecture', 'High-Speed Web', 'System Reliability']
+    description: 'Architecting end-to-end digital products, integrating intelligent AI workflows, and building high-performance, conversion-oriented web platforms.'
   },
   {
+    index: '2025',
     period: '2025',
     focus: 'Business Systems',
     subtitle: 'Enterprise Platforms & Operations',
-    description: 'Engineering multi-tenant business software, custom ERP platforms, automated workflows, and high-security transactional infrastructure.',
-    deliverables: ['Custom ERP Systems', 'Cloud Infrastructure', 'Authentication & RBAC', 'Data Pipelines']
+    description: 'Engineering multi-tenant business software, custom ERP platforms, automated workflows, and high-security transactional infrastructure.'
   },
   {
     period: '2024',
     focus: 'Web & Mobile',
     subtitle: 'Interactive Applications & UX',
-    description: 'Developing fluid cross-platform mobile apps, real-time communication tools, and conversion-focused responsive user interfaces.',
-    deliverables: ['Mobile Apps', 'Realtime Systems', 'UI/UX Design Systems', 'REST & GraphQL APIs']
+    description: 'Developing fluid cross-platform mobile apps, real-time communication tools, and conversion-focused responsive user interfaces.'
   }
 ];
 ---
@@ -43,12 +41,6 @@ const experienceList = [
               <span class="org-name">— {exp.subtitle}</span>
             </div>
             <p class="role-description">{exp.description}</p>
-          </div>
-
-          <div class="timeline-deliverables">
-            {exp.deliverables.map((item) => (
-              <span class="deliverable-tag">{item}</span>
-            ))}
           </div>
         </div>
       ))}
@@ -79,16 +71,16 @@ const experienceList = [
   .experience-timeline {
     display: flex;
     flex-direction: column;
-    gap: clamp(2rem, 3.5vw, 3.5rem);
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
   }
 
   .timeline-row {
     display: grid;
-    grid-template-columns: 160px 1.4fr 1fr;
+    grid-template-columns: 160px 1fr;
     gap: clamp(1.5rem, 3.5vw, 3.5rem);
     padding: clamp(1.5rem, 2.5vw, 2.25rem) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    align-items: start;
+    align-items: baseline;
   }
 
   .timeline-row:last-child {
@@ -112,6 +104,7 @@ const experienceList = [
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    max-width: 780px;
   }
 
   .role-org-group {
@@ -138,35 +131,12 @@ const experienceList = [
     font-size: var(--text-sm);
     color: var(--text-secondary);
     line-height: 1.65;
-    max-width: 540px;
   }
 
-  .timeline-deliverables {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.5rem;
-  }
-
-  .deliverable-tag {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    font-weight: 500;
-    color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    padding: 0.35rem 0.65rem;
-    border-radius: var(--radius-full);
-  }
-
-  @media (max-width: 960px) {
+  @media (max-width: 768px) {
     .timeline-row {
       grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .timeline-deliverables {
-      justify-content: flex-start;
+      gap: 0.75rem;
     }
   }
 </style>

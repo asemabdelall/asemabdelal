@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import ArrowLink from '../ui/ArrowLink.astro';
 
 const allNotes = await getCollection('notes');
 const notes = allNotes.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
@@ -29,14 +28,7 @@ const notes = allNotes.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99
             </div>
 
             <div class="note-right">
-              <div class="note-meta">
-                <span class="note-readtime">{note.data.readTime}</span>
-              </div>
-              <div class="note-tags">
-                {note.data.tags.map((tag) => (
-                  <span class="note-tag">{tag}</span>
-                ))}
-              </div>
+              <span class="note-readtime">{note.data.readTime}</span>
             </div>
           </article>
         );
@@ -82,21 +74,27 @@ const notes = allNotes.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99
   .notes-list {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
   }
 
   .note-row {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     gap: 3rem;
     padding: clamp(1.25rem, 2vw, 1.75rem) 0;
-    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .note-row:last-child {
+    border-bottom: none;
   }
 
   .note-left {
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
     gap: 2rem;
+    max-width: 820px;
   }
 
   .note-index {
@@ -104,7 +102,7 @@ const notes = allNotes.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--accent);
-    padding-top: 0.25rem;
+    flex-shrink: 0;
   }
 
   .note-title-wrap {
@@ -129,45 +127,29 @@ const notes = allNotes.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99
 
   .note-right {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.75rem;
-  }
-
-  .note-meta {
-    display: flex;
     align-items: center;
-    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  .note-readtime {
     font-family: var(--font-sans);
     font-size: var(--text-xs);
     font-weight: 500;
     color: var(--text-muted);
-  }
-
-  .note-tags {
-    display: flex;
-    gap: 0.4rem;
-  }
-
-  .note-tag {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    font-weight: 500;
-    color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.04);
-    padding: 0.25rem 0.6rem;
-    border-radius: var(--radius-full);
   }
 
   @media (max-width: 860px) {
     .note-row {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .note-left {
       gap: 1.25rem;
     }
 
     .note-right {
-      align-items: flex-start;
-      padding-left: 3.25rem;
+      padding-left: 2.5rem;
     }
   }
 </style>
