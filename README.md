@@ -9,8 +9,8 @@ A high-performance, editorial digital portfolio built with **Astro 5**, **TypeSc
 - **Ultra-Fast Static Engine:** Powered by [Astro 5](https://astro.build/) delivering 100/100 Lighthouse performance scores and sub-second static generation.
 - **GSAP Motion Choreography:** Bespoke GSAP and ScrollTrigger animations for staggered reveals, text parallax, and micro-interactions with fallback resilience.
 - **Fixed Hero Parallax Background:** CSS-driven cinematic backdrop pinned behind glassmorphic content layers.
-- **Modular Content Collections:** Structured markdown schemas for case studies and engineering insights with typed metadata and automatic routing.
-- **Optimized Asset Pipeline:** Automatic Sharp WebP conversion compressing media by up to 90% without visual fidelity loss.
+- **Modular Content Collections:** Structured markdown schemas for systems architecture and engineering insights with typed metadata.
+- **Optimized Asset Pipeline:** Automatic Sharp WebP conversion compressing media by up to 90% without visual fidelity loss or mobile cropping.
 - **Bespoke Native Design System:** 100% Vanilla CSS tokens for fluid typography (`clamp()`), dark ambient lighting, and borderless card structures.
 
 ---
@@ -45,15 +45,13 @@ A high-performance, editorial digital portfolio built with **Astro 5**, **TypeSc
 │   ├── content/
 │   │   ├── config.ts      # Zod content collection schemas
 │   │   ├── notes/         # Engineering insights & articles
-│   │   └── projects/      # Flagship case studies (MixChat, Rahafit, GoldPro ERP, GoldPro Web)
+│   │   └── projects/      # Flagship digital systems (MixChat, Rahafit, GoldPro ERP, GoldPro Web)
 │   ├── layouts/
-│   │   ├── BaseLayout.astro    # Master HTML shell & GSAP loader
-│   │   └── ProjectLayout.astro # Case study editorial template
+│   │   └── BaseLayout.astro    # Master HTML shell & GSAP loader
 │   ├── pages/
 │   │   ├── index.astro         # Main single-page portfolio experience
 │   │   ├── 404.astro           # Custom 404 error experience
-│   │   ├── notes/              # Notes archive index
-│   │   └── work/               # Dynamic [slug].astro case study routes
+│   │   └── notes/              # Notes archive index
 │   ├── scripts/
 │   │   └── animations.ts  # Master GSAP ScrollTrigger timeline controller
 │   └── styles/
@@ -109,12 +107,12 @@ npm run preview
 
 ---
 
-## 💼 Featured Case Studies
+## 💼 Featured Projects
 
-1. **MixChat:** Ultra-fast real-time community and social communication platform.
-2. **Rahafit:** AI-powered personalized fitness, nutrition, and daily workout companion.
-3. **GoldPro ERP:** Enterprise resource planning, multi-tenant operations, and logistics platform.
-4. **GoldPro Platform & Imran AI:** Corporate construction portal with conversational AI engineering consultant.
+1. **MixChat:** Modern social communication platform with voice, video, media feed, and creator profiles.
+2. **Rahafit:** AI-powered personalized fitness, nutrition, and daily workout companion platform.
+3. **GoldPro ERP:** Enterprise management, multi-tenant operations, and logistics platform.
+4. **GoldPro Platform & Imran AI:** Corporate construction platform featuring conversational AI engineering consultant.
 
 ---
 

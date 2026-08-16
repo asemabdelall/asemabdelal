@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
-import ArrowLink from '../ui/ArrowLink.astro';
 import mixchatImg from '../../assets/images/mixchat.png';
 import rahafitImg from '../../assets/images/rahafit.png';
 import goldproImg from '../../assets/images/goldpro.png';
@@ -38,8 +37,8 @@ const projectImages: Record<string, ImageMetadata> = {
 
         return (
           <article class={`project-story-item ${isReversed ? 'is-reversed' : ''}`}>
-            <!-- Project Interactive Media Showcase -->
-            <a href={`/work/${project.id}`} class="project-media-card" aria-label={`View ${project.data.title} case study`}>
+            <!-- Project High-Fidelity Media Showcase -->
+            <div class="project-media-card">
               <div class="project-media-inner">
                 <div class="media-real-image-container">
                   {imageAsset ? (
@@ -62,7 +61,7 @@ const projectImages: Record<string, ImageMetadata> = {
                 <!-- Ambient Glow -->
                 <div class="card-ambient-glow" style={`--glow-color: ${project.data.accentColor || '#D99A4C'};`}></div>
               </div>
-            </a>
+            </div>
 
             <!-- Project Narrative & Metadata -->
             <div class="project-details">
@@ -72,9 +71,7 @@ const projectImages: Record<string, ImageMetadata> = {
                 <span class="project-year">{project.data.year}</span>
               </div>
 
-              <h3 class="project-title">
-                <a href={`/work/${project.id}`}>{project.data.title}</a>
-              </h3>
+              <h3 class="project-title">{project.data.title}</h3>
 
               <p class="project-tagline">{project.data.tagline}</p>
 
@@ -84,14 +81,6 @@ const projectImages: Record<string, ImageMetadata> = {
                 {project.data.tags.map((tag) => (
                   <span class="tech-tag">{tag}</span>
                 ))}
-              </div>
-
-              <div class="project-action-row">
-                <ArrowLink 
-                  href={`/work/${project.id}`} 
-                  text="View Case Study" 
-                  variant="pill" 
-                />
               </div>
             </div>
           </article>
@@ -109,7 +98,7 @@ const projectImages: Record<string, ImageMetadata> = {
   }
 
   .work-header {
-    margin-bottom: clamp(4rem, 8vw, 7rem);
+    margin-bottom: clamp(3.5rem, 7vw, 6rem);
   }
 
   .work-title-row {
@@ -135,17 +124,17 @@ const projectImages: Record<string, ImageMetadata> = {
     max-width: 460px;
   }
 
-  /* Project Story Flow */
+  /* Projects Story Flow */
   .projects-list {
     display: flex;
     flex-direction: column;
-    gap: clamp(6rem, 10vw, 11rem);
+    gap: clamp(5rem, 8vw, 9rem);
   }
 
   .project-story-item {
     display: grid;
     grid-template-columns: 1.35fr 1fr;
-    gap: clamp(2.5rem, 5vw, 6rem);
+    gap: clamp(2.5rem, 5vw, 5rem);
     align-items: center;
   }
 
@@ -165,82 +154,79 @@ const projectImages: Record<string, ImageMetadata> = {
   .project-media-card {
     position: relative;
     display: block;
-    cursor: pointer;
+    width: 100%;
   }
 
   .project-media-inner {
-    aspect-ratio: 16 / 10;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(1.25rem, 2.5vw, 2.25rem);
-    background: linear-gradient(135deg, #0D0F14 0%, #07090C 100%);
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+    background: linear-gradient(145deg, #0E1218 0%, #06080B 100%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65);
     transition: transform var(--duration-normal) var(--ease-premium),
-                box-shadow var(--duration-normal) var(--ease-premium);
+                box-shadow var(--duration-normal) var(--ease-premium),
+                border-color var(--duration-normal) var(--ease-premium);
   }
 
   .project-media-card:hover .project-media-inner {
-    transform: translateY(-3px);
-    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.75);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.8);
   }
 
   .card-ambient-glow {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 65%;
-    height: 65%;
+    width: 70%;
+    height: 70%;
     transform: translate(-50%, -50%);
     background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
     opacity: 0.08;
-    filter: blur(40px);
+    filter: blur(50px);
     pointer-events: none;
     transition: opacity var(--duration-normal) var(--ease-premium);
   }
 
   .project-media-card:hover .card-ambient-glow {
-    opacity: 0.18;
+    opacity: 0.2;
   }
 
-
-
-
-
-
-  /* Real Image Showcase */
+  /* Real Image Container — Crisp & Uncropped */
   .media-real-image-container {
     width: 100%;
-    height: 100%;
     border-radius: var(--radius-md);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #090B0E;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    background: #080A0D;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
   }
 
   .project-showcase-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: var(--radius-md);
     transition: transform var(--duration-normal) var(--ease-premium);
   }
 
   .project-media-card:hover .project-showcase-img {
-    transform: scale(1.03);
+    transform: scale(1.015);
   }
 
   /* Project Details Styling */
   .project-details {
     display: flex;
     flex-direction: column;
-    gap: 1.35rem;
+    gap: 1.25rem;
   }
 
   .project-meta-top {
@@ -266,10 +252,6 @@ const projectImages: Record<string, ImageMetadata> = {
     color: var(--text-primary);
   }
 
-  .project-title a:hover {
-    color: var(--accent);
-  }
-
   .project-tagline {
     font-size: var(--text-body);
     font-weight: 400;
@@ -289,7 +271,6 @@ const projectImages: Record<string, ImageMetadata> = {
     gap: 0.5rem;
   }
 
-  /* Clean Sans Tags */
   .tech-tag {
     font-family: var(--font-sans);
     font-size: var(--text-xs);
@@ -298,23 +279,15 @@ const projectImages: Record<string, ImageMetadata> = {
     background: rgba(255, 255, 255, 0.05);
     padding: 0.35rem 0.75rem;
     border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.04);
   }
 
-  .project-action-row {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    margin-top: 0.5rem;
-  }
-
-
-
-  /* Responsive */
+  /* Responsive Adjustments */
   @media (max-width: 980px) {
     .project-story-item,
     .project-story-item.is-reversed {
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
     .project-story-item.is-reversed .project-media-card {
@@ -325,12 +298,24 @@ const projectImages: Record<string, ImageMetadata> = {
       order: 2;
     }
 
-    .mixchat-grid {
-      grid-template-columns: 1fr;
+    .project-media-inner {
+      padding: 0.65rem;
+      border-radius: var(--radius-lg);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-media-inner {
+      padding: 0.5rem;
+      border-radius: var(--radius-md);
     }
 
-    .mixchat-sidebar {
-      display: none;
+    .media-real-image-container {
+      border-radius: var(--radius-sm);
+    }
+
+    .project-showcase-img {
+      border-radius: var(--radius-sm);
     }
   }
 </style>
