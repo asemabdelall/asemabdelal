@@ -190,18 +190,18 @@ export function initGSAPAnimations() {
   });
 
   // ----------------------------------------------------
-  // 5. SERVICES ROWS (STAGGER)
+  // 5. SERVICES CARDS (STAGGER)
   // ----------------------------------------------------
-  const serviceRows = document.querySelectorAll('.capability-row');
-  if (serviceRows.length) {
-    gsap.from(serviceRows, {
-      y: 30,
+  const serviceCards = document.querySelectorAll('.service-card');
+  if (serviceCards.length) {
+    gsap.from(serviceCards, {
+      y: 28,
       opacity: 0,
       duration: 0.8,
-      stagger: 0.1,
+      stagger: 0.08,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.capabilities-list',
+        trigger: '.services-list',
         start: 'top 85%',
         once: true,
       },

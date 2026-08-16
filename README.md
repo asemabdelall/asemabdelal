@@ -40,7 +40,7 @@ A high-performance, editorial digital portfolio built with **Astro 5**, **TypeSc
 │   ├── assets/images/     # High-resolution optimized project screenshots
 │   ├── components/
 │   │   ├── layout/        # Header, Footer, and Navigation
-│   │   ├── sections/      # Hero, About, SelectedWork, TechStack, Experience, Notes, Contact
+│   │   ├── sections/      # Hero, About, SelectedWork, Services, TechStack, Experience, Notes, Contact
 │   │   └── ui/            # Reusable ArrowLinks, Buttons, Badges
 │   ├── content/
 │   │   ├── config.ts      # Zod content collection schemas
