@@ -1,0 +1,249 @@
+---
+import { Image } from 'astro:assets';
+import heroBg from '../../assets/images/hero-bg.png';
+import ArrowLink from '../ui/ArrowLink.astro';
+---
+
+<section class="hero-section" id="hero" aria-label="Hero Introduction">
+  <!-- Background Photography Container -->
+  <div class="hero-media-wrapper">
+    <Image 
+      src={heroBg} 
+      alt="Developer workspace at night with city skyline and warm ambient lighting" 
+      class="hero-bg-image"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    
+    <!-- Atmospheric Visual Overlays -->
+    <div class="hero-gradient-overlay" aria-hidden="true"></div>
+    <div class="hero-vignette-overlay" aria-hidden="true"></div>
+    <div class="hero-bottom-fade" aria-hidden="true"></div>
+  </div>
+
+  <!-- Hero Content Structure -->
+  <div class="hero-content-container">
+    <div class="hero-text-block">
+      <h1 class="hero-headline">
+        <span class="hero-word">BUILD</span>
+      </h1>
+      <p class="hero-subheadline">
+        Scalable products. Thoughtful systems.
+      </p>
+    </div>
+
+    <!-- Bottom Left Interaction Trigger -->
+    <div class="hero-explore-wrapper">
+      <ArrowLink 
+        href="#about" 
+        text="EXPLORE WORK" 
+        variant="explore" 
+        class="hero-explore-btn"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  /* Fixed Media Background for Cinematic Scroll */
+  .hero-media-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    transform: scale(1.01);
+    transform-origin: center right;
+  }
+
+  /* Precision Atmospheric Gradients matching Desktop & Mobile */
+  .hero-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(6, 7, 9, 0.96) 0%,
+      rgba(6, 7, 9, 0.88) 28%,
+      rgba(6, 7, 9, 0.65) 45%,
+      rgba(6, 7, 9, 0.25) 65%,
+      rgba(6, 7, 9, 0) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-vignette-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      transparent 50%,
+      rgba(6, 7, 9, 0.4) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-bottom-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(6, 7, 9, 0.8) 70%,
+      var(--bg) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Content Layout */
+  .hero-content-container {
+    position: relative;
+    z-index: var(--z-card);
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding-left: var(--page-padding-x);
+    padding-right: var(--page-padding-x);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-text-block {
+    max-width: 650px;
+    margin-top: -1.5rem;
+  }
+
+  /* Massive Editorial "BUILD" Headline */
+  .hero-headline {
+    margin: 0 0 0.85rem 0;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-word {
+    font-family: var(--font-sans);
+    font-size: clamp(4.5rem, 13.5vw, 12rem);
+    font-weight: 300;
+    color: var(--text-primary);
+    display: inline-block;
+    letter-spacing: 0.01em;
+    user-select: none;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Supporting Copy */
+  .hero-subheadline {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 1.85vw, 1.5rem);
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Bottom Left Explore Work Link */
+  .hero-explore-wrapper {
+    position: absolute;
+    bottom: 3.25rem;
+    left: var(--page-padding-x);
+  }
+
+  /* Responsive Art-Direction for Tablet & Mobile */
+  @media (max-width: 860px) {
+    .hero-section {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-bg-image {
+      object-position: 70% 30%;
+    }
+
+    .hero-gradient-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(6, 7, 9, 0.15) 0%,
+        rgba(6, 7, 9, 0.4) 35%,
+        rgba(6, 7, 9, 0.85) 60%,
+        rgba(6, 7, 9, 0.98) 80%,
+        var(--bg) 100%
+      );
+    }
+
+    .hero-content-container {
+      justify-content: flex-end;
+      padding-bottom: 7rem;
+      min-height: 100dvh;
+    }
+
+    .hero-text-block {
+      margin-top: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-word {
+      font-size: clamp(4.5rem, 20vw, 7.5rem);
+    }
+
+    .hero-explore-wrapper {
+      bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-bg-image {
+      object-position: 74% 20%;
+    }
+
+    .hero-content-container {
+      padding-bottom: 6rem;
+    }
+
+    .hero-word {
+      font-size: clamp(4rem, 23vw, 6rem);
+    }
+
+    .hero-subheadline {
+      font-size: 1rem;
+    }
+
+    .hero-explore-wrapper {
+      bottom: 1.75rem;
+    }
+  }
+</style>

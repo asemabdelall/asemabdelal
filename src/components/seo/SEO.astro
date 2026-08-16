@@ -1,0 +1,71 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article' | 'profile';
+}
+
+const {
+  title = "Asem Abdelal — Senior Product Engineer & Systems Architect",
+  description = "Scalable products. Thoughtful systems. Portfolio of Asem Abdelal — specializing in high-throughput backend architecture, realtime systems, mobile applications, and AI integrations.",
+  image = "/og-image.png",
+  canonicalURL = Astro.url.href,
+  type = "website"
+} = Astro.props;
+
+const siteTitle = title.includes("Asem Abdelal") ? title : `${title} | Asem Abdelal`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Asem Abdelal",
+  "jobTitle": "Senior Product Engineer & Systems Architect",
+  "url": "https://asemabdelal.dev",
+  "sameAs": [
+    "https://github.com/asemabdelal",
+    "https://linkedin.com/in/asemabdelal"
+  ],
+  "knowsAbout": [
+    "Product Engineering",
+    "Backend Systems Architecture",
+    "Realtime Distributed Systems",
+    "Mobile Applications",
+    "TypeScript",
+    "PostgreSQL",
+    "High-Performance Web Applications"
+  ],
+  "description": description
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#060709" />
+<meta name="color-scheme" content="dark" />
+
+<!-- Favicons & Icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.site || 'https://asemabdelal.dev')} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={siteTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.site || 'https://asemabdelal.dev')} />
+
+<!-- Structured Data (JSON-LD) -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

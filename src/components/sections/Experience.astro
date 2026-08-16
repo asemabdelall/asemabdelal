@@ -1,0 +1,164 @@
+---
+const experienceList = [
+  {
+    period: '2025 — Present',
+    role: 'Principal Digital Product Engineer',
+    organization: 'Independent Consultant',
+    description: 'Partnering with founders and businesses to architect and launch high-performance web products, mobile applications, and automated workflows.',
+    deliverables: ['Product Architecture', 'Full-Stack Delivery', 'Technical Leadership']
+  },
+  {
+    period: '2024 — 2025',
+    role: 'Lead Full-Stack Engineer',
+    organization: 'Enterprise & Financial Systems',
+    description: 'Led technical development of multi-tenant enterprise software, high-volume transactional platforms, and real-time inventory systems.',
+    deliverables: ['Custom ERP Software', 'Secure Payment Systems', 'Cloud Scaling']
+  },
+  {
+    period: '2023 — 2024',
+    role: 'Senior Product & Mobile Engineer',
+    organization: 'Consumer Tech & Applications',
+    description: 'Built interactive mobile applications, user-facing messaging tools, and responsive digital products for high-traffic environments.',
+    deliverables: ['Mobile Apps', 'Realtime Features', 'UX Optimization']
+  }
+];
+---
+
+<section class="experience-section section-padding" id="experience" aria-label="Professional Experience">
+  <div class="container">
+    <div class="experience-header">
+      <h2 class="experience-heading">Experience.</h2>
+    </div>
+
+    <div class="experience-timeline">
+      {experienceList.map((exp) => (
+        <div class="timeline-row reveal-fade-up">
+          <div class="timeline-period">
+            <span class="period-text">{exp.period}</span>
+          </div>
+
+          <div class="timeline-main">
+            <div class="role-org-group">
+              <h3 class="role-title">{exp.role}</h3>
+              <span class="org-name">{exp.organization}</span>
+            </div>
+            <p class="role-description">{exp.description}</p>
+          </div>
+
+          <div class="timeline-deliverables">
+            {exp.deliverables.map((item) => (
+              <span class="deliverable-tag">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    background-color: var(--bg);
+    position: relative;
+    z-index: 2;
+  }
+
+  .experience-header {
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .experience-heading {
+    font-size: var(--text-title-1);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+  }
+
+  .experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 220px 1.4fr 1fr;
+    gap: clamp(1.5rem, 3.5vw, 3.5rem);
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0;
+    align-items: start;
+  }
+
+  .timeline-period {
+    display: flex;
+    align-items: center;
+  }
+
+  .period-text {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .timeline-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .role-org-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .role-title {
+    font-size: var(--text-title-3);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .org-name {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .role-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 540px;
+  }
+
+  .timeline-deliverables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .deliverable-tag {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  @media (max-width: 960px) {
+    .timeline-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .timeline-deliverables {
+      justify-content: flex-start;
+    }
+  }
+</style>

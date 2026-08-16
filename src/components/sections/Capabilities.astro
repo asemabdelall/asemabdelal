@@ -1,0 +1,169 @@
+---
+const services = [
+  {
+    index: '01',
+    title: 'Custom Web & SaaS Platforms',
+    summary: 'High-speed, scalable web applications built with modern frameworks, clean code architecture, and high conversion design.',
+    tags: ['Full-Stack Web Apps', 'SaaS Architecture', 'Realtime Features', 'Stripe & Payments']
+  },
+  {
+    index: '02',
+    title: 'Mobile App Development',
+    summary: 'Fluid iOS and Android mobile apps crafted with native performance, offline capabilities, and smooth tactile interactions.',
+    tags: ['iOS & Android Apps', 'Offline-First Storage', 'App Store Publishing', 'Push Notifications']
+  },
+  {
+    index: '03',
+    title: 'Robust Backend & Cloud Systems',
+    summary: 'High-throughput API endpoints, database architecture, and microservices engineered for 99.99% uptime and security.',
+    tags: ['Custom APIs', 'Database Optimization', 'Cloud Infrastructure', 'Authentication & RBAC']
+  },
+  {
+    index: '04',
+    title: 'Product UI/UX & Design Systems',
+    summary: 'Bespoke, conversion-focused user interfaces with unified design tokens, dark modes, and micro-interactions.',
+    tags: ['Interactive Prototypes', 'Design Systems', 'Responsive Design', 'Conversion UX']
+  },
+  {
+    index: '05',
+    title: 'AI Integrations & Automation',
+    summary: 'Integrating intelligent LLM workflows, automated business pipelines, and AI assistants directly into customer products.',
+    tags: ['AI Automation', 'LLM Chatbots', 'Document Parsing', 'Smart Search']
+  }
+];
+---
+
+<section class="capabilities-section section-padding" id="services" aria-label="Services & Capabilities">
+  <div class="container">
+    <div class="capabilities-header">
+      <h2 class="capabilities-heading">Services.</h2>
+    </div>
+
+    <div class="capabilities-table">
+      {services.map((service) => (
+        <div class="capability-row">
+          <div class="row-left">
+            <span class="cap-index">{service.index}</span>
+            <h3 class="cap-title">{service.title}</h3>
+          </div>
+
+          <div class="row-middle">
+            <p class="cap-summary">{service.summary}</p>
+          </div>
+
+          <div class="row-right">
+            <div class="cap-skills">
+              {service.tags.map((tag) => (
+                <span class="cap-pill">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .capabilities-section {
+    background-color: var(--bg);
+    position: relative;
+    z-index: 2;
+  }
+
+  .capabilities-header {
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .capabilities-heading {
+    font-size: var(--text-title-1);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+  }
+
+  /* Borderless Services Table */
+  .capabilities-table {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .capability-row {
+    display: grid;
+    grid-template-columns: 240px 1.5fr 1fr;
+    gap: clamp(1.5rem, 3.5vw, 3.5rem);
+    padding: clamp(1.25rem, 2vw, 1.75rem) 0;
+    align-items: baseline;
+    transition: background-color var(--duration-fast) var(--ease-premium);
+  }
+
+  .row-left {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+  }
+
+  .cap-index {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .cap-title {
+    font-size: var(--text-title-3);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .row-middle {
+    max-width: 540px;
+  }
+
+  .cap-summary {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .row-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .cap-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .cap-pill {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  @media (max-width: 960px) {
+    .capability-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .row-right {
+      justify-content: flex-start;
+    }
+
+    .cap-skills {
+      justify-content: flex-start;
+    }
+  }
+</style>

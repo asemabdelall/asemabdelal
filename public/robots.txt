@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asemabdelal.dev/sitemap-index.xml

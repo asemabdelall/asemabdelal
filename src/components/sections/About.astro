@@ -1,0 +1,150 @@
+---
+---
+
+<section class="about-section section-padding" id="about" aria-label="About Philosophy">
+  <div class="container">
+    <div class="about-header">
+      <h2 class="about-statement">
+        I design and build digital products that turn ideas into <span class="text-highlight">valuable businesses</span>.
+      </h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-narrative reveal-fade-up">
+        <p class="narrative-lead">
+          I partner with ambitious founders, startups, and companies to craft high-impact web and mobile experiences — taking products from initial strategy and design to full production launch.
+        </p>
+        <p class="narrative-body">
+          Every project is built with speed, reliability, and world-class visual polish. Instead of over-complicated systems, I focus on delivering clean, scalable software that users love and that directly drives growth.
+        </p>
+      </div>
+
+      <div class="about-pillars reveal-fade-up">
+        <div class="pillar-item">
+          <span class="pillar-index">01</span>
+          <div class="pillar-content">
+            <h3 class="pillar-title">Speed & Reliability</h3>
+            <p class="pillar-desc">Lightning-fast performance and seamless user experiences on every device.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <span class="pillar-index">02</span>
+          <div class="pillar-content">
+            <h3 class="pillar-title">End-to-End Delivery</h3>
+            <p class="pillar-desc">From product strategy and UI design to complete engineering and cloud deployment.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <span class="pillar-index">03</span>
+          <div class="pillar-content">
+            <h3 class="pillar-title">Premium Craftsmanship</h3>
+            <p class="pillar-desc">Bespoke interfaces with refined aesthetics that elevate your brand value.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: linear-gradient(to bottom, rgba(6, 7, 9, 0.4) 0%, rgba(6, 7, 9, 0.95) 12%, var(--bg) 25%, var(--bg) 100%);
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-header {
+    max-width: 980px;
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .about-statement {
+    font-size: var(--text-title-1);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .text-highlight {
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: start;
+  }
+
+  .about-narrative {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .narrative-lead {
+    font-size: var(--text-body-lg);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .narrative-body {
+    font-size: var(--text-body);
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .about-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .pillar-index {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+    padding-top: 0.1rem;
+  }
+
+  .pillar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .pillar-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .pillar-desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+</style>

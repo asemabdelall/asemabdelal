@@ -1,0 +1,213 @@
+---
+interface TechItem {
+  name: string;
+  category: string;
+  color: string;
+  iconPath: string;
+  isLightIcon?: boolean;
+}
+
+const techStack: TechItem[] = [
+  {
+    name: 'TypeScript',
+    category: 'Type Safety & Architecture',
+    color: '#3178C6',
+    iconPath: '/icons/typescript.svg'
+  },
+  {
+    name: 'React',
+    category: 'Dynamic Interfaces & UI',
+    color: '#61DAFB',
+    iconPath: '/icons/react.svg'
+  },
+  {
+    name: 'Next.js',
+    category: 'Full-Stack Web & SSR',
+    color: '#FFFFFF',
+    iconPath: '/icons/nextjs.svg'
+  },
+  {
+    name: 'Node.js',
+    category: 'High-Throughput Runtime',
+    color: '#5FA04E',
+    iconPath: '/icons/nodejs.svg'
+  },
+  {
+    name: 'Nest.js',
+    category: 'Enterprise Backend Systems',
+    color: '#E0234E',
+    iconPath: '/icons/nestjs.svg'
+  },
+  {
+    name: 'Laravel',
+    category: 'Robust Business Logic & APIs',
+    color: '#FF2D20',
+    iconPath: '/icons/laravel.svg'
+  },
+  {
+    name: 'Expo',
+    category: 'Cross-Platform Mobile Apps',
+    color: '#FFFFFF',
+    iconPath: '/icons/expo.svg',
+    isLightIcon: true
+  }
+];
+---
+
+<section class="tech-stack-section section-padding" id="technologies" aria-label="Core Technology Stack">
+  <div class="container">
+    <div class="tech-header">
+      <h2 class="tech-headline">Engineered for speed, scale & security.</h2>
+      <p class="tech-subtext">Selected modern frameworks and runtimes trusted to deliver resilient digital products.</p>
+    </div>
+
+    <div class="tech-grid">
+      {techStack.map((tech) => (
+        <div class="tech-card" style={`--tech-accent: ${tech.color};`}>
+          <div class="tech-icon-box">
+            <img 
+              src={tech.iconPath} 
+              alt={`${tech.name} logo`} 
+              class={`tech-icon-img ${tech.isLightIcon ? 'is-light' : ''}`}
+              width="32" 
+              height="32" 
+              loading="lazy" 
+            />
+          </div>
+          <div class="tech-info">
+            <h3 class="tech-name">{tech.name}</h3>
+            <span class="tech-category">{tech.category}</span>
+          </div>
+          <div class="tech-ambient-glow" aria-hidden="true"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tech-stack-section {
+    background-color: var(--bg);
+    position: relative;
+    z-index: 2;
+  }
+
+  .tech-header {
+    max-width: 800px;
+    margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .tech-headline {
+    font-size: var(--text-title-1);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0.5rem 0 0.85rem;
+  }
+
+  .tech-subtext {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Borderless Responsive Tech Grid */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tech-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, rgba(16, 20, 28, 0.6) 0%, rgba(10, 12, 16, 0.4) 100%);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--duration-normal) var(--ease-premium),
+                background-color var(--duration-normal) var(--ease-premium),
+                box-shadow var(--duration-normal) var(--ease-premium);
+  }
+
+  .tech-card:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, rgba(22, 28, 38, 0.8) 0%, rgba(14, 17, 24, 0.6) 100%);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  }
+
+  .tech-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.03);
+    flex-shrink: 0;
+    transition: transform var(--duration-normal) var(--ease-premium);
+  }
+
+  .tech-card:hover .tech-icon-box {
+    transform: scale(1.08);
+  }
+
+  .tech-icon-img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+  }
+
+  .tech-icon-img.is-light {
+    filter: brightness(0) invert(1);
+  }
+
+  .tech-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .tech-name {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .tech-category {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .tech-ambient-glow {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, var(--tech-accent) 0%, transparent 70%);
+    opacity: 0;
+    filter: blur(25px);
+    pointer-events: none;
+    transition: opacity var(--duration-normal) var(--ease-premium);
+  }
+
+  .tech-card:hover .tech-ambient-glow {
+    opacity: 0.22;
+  }
+
+  @media (max-width: 640px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

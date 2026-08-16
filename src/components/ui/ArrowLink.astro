@@ -1,0 +1,153 @@
+---
+export interface Props {
+  href: string;
+  text: string;
+  variant?: 'pill' | 'text' | 'explore';
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  text,
+  variant = 'text',
+  external = false,
+  class: className = ""
+} = Astro.props;
+
+const target = external ? "_blank" : undefined;
+const rel = external ? "noopener noreferrer" : undefined;
+---
+
+{variant === 'pill' ? (
+  <a href={href} target={target} rel={rel} class={`arrow-pill-button ${className}`}>
+    <span class="button-label">{text}</span>
+    <span class="button-icon-wrapper">
+      <svg class="arrow-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+) : variant === 'explore' ? (
+  <a href={href} class={`explore-link ${className}`}>
+    <span class="explore-text">{text}</span>
+    <svg class="chevron-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.5 6L8 10.5L12.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+) : (
+  <a href={href} target={target} rel={rel} class={`arrow-text-link ${className}`}>
+    <span class="text-content">{text}</span>
+    <svg class="arrow-inline" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+)}
+
+<style>
+  /* Clean Borderless Pill Button */
+  .arrow-pill-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.55rem 0.65rem 0.55rem 1.4rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    transition: all var(--duration-fast) var(--ease-premium);
+    user-select: none;
+  }
+
+  .arrow-pill-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .arrow-pill-button:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .button-icon-wrapper {
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-full);
+    background-color: var(--accent-muted);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--duration-fast) var(--ease-premium);
+  }
+
+  .arrow-pill-button:hover .button-icon-wrapper {
+    background-color: var(--accent);
+    color: #060709;
+    transform: rotate(45deg) scale(1.06);
+  }
+
+  .arrow-svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Explore Link (Hero Section) */
+  .explore-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transition: color var(--duration-fast) var(--ease-premium),
+                transform var(--duration-fast) var(--ease-premium);
+    user-select: none;
+  }
+
+  .explore-link:hover {
+    color: var(--text-primary);
+    transform: translateY(2px);
+  }
+
+  .chevron-svg {
+    width: 12px;
+    height: 12px;
+    color: var(--accent);
+    transition: transform var(--duration-fast) var(--ease-premium);
+  }
+
+  .explore-link:hover .chevron-svg {
+    transform: translateY(3px);
+  }
+
+  /* Text Link with Slide Arrow */
+  .arrow-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--duration-fast) var(--ease-premium);
+  }
+
+  .arrow-text-link:hover {
+    color: var(--text-primary);
+  }
+
+  .arrow-inline {
+    width: 14px;
+    height: 14px;
+    color: var(--accent);
+    transition: transform var(--duration-fast) var(--ease-premium);
+  }
+
+  .arrow-text-link:hover .arrow-inline {
+    transform: translateX(4px);
+  }
+</style>

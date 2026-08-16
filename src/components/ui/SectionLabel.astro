@@ -1,0 +1,38 @@
+---
+export interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className = "" } = Astro.props;
+---
+
+<div class={`eyebrow-label ${className}`}>
+  <span>{text}</span>
+</div>
+
+<style>
+  .eyebrow-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    user-select: none;
+  }
+
+  .eyebrow-label::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+</style>

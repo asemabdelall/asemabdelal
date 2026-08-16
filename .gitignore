@@ -1,0 +1,26 @@
+# Build and cache directories
+dist/
+.astro/
+node_modules/
+
+# Environment variables
+.env
+.env.production
+.env.local
+*.env
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

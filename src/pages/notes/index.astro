@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Notes from '../../components/sections/Notes.astro';
+---
+
+<BaseLayout 
+  title="Insights — Asem Abdelal"
+  description="Reflections on digital product strategy, building high-performing web platforms, and modern design."
+>
+  <div class="notes-page-header">
+    <div class="container">
+      <h1 class="page-title">Insights.</h1>
+      <p class="page-desc">Practical thoughts on turning digital concepts into scalable, revenue-generating products.</p>
+    </div>
+  </div>
+  <Notes />
+</BaseLayout>
+
+<style>
+  .notes-page-header {
+    padding-top: 9rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .page-title {
+    font-size: var(--text-title-1);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0.5rem 0 0.85rem;
+  }
+
+  .page-desc {
+    font-size: var(--text-body-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+</style>
