@@ -74,17 +74,25 @@ const navLinks = [
     left: 0;
     right: 0;
     z-index: var(--z-header);
-    padding: 3.25rem var(--page-padding-x);
+    padding: 1.75rem var(--page-padding-x);
+    background: rgba(6, 7, 9, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     transition: background-color var(--duration-normal) var(--ease-premium),
                 backdrop-filter var(--duration-normal) var(--ease-premium),
-                padding var(--duration-normal) var(--ease-premium);
+                padding var(--duration-normal) var(--ease-premium),
+                border-color var(--duration-normal) var(--ease-premium),
+                box-shadow var(--duration-normal) var(--ease-premium);
   }
 
   .site-header.is-scrolled {
-    padding: 1.70rem var(--page-padding-x);
-    background-color: var(--bg-surface-glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    padding: 1.25rem var(--page-padding-x);
+    background: rgba(6, 7, 9, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   }
 
   .header-container {
