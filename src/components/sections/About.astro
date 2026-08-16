@@ -1,4 +1,24 @@
 ---
+const pillars = [
+  {
+    index: '01',
+    title: 'Speed & Reliability',
+    desc: 'Fast load times, responsive interfaces, and stable architecture across devices.',
+    color: '#38BDF8'
+  },
+  {
+    index: '02',
+    title: 'End-to-End Execution',
+    desc: 'From initial prototyping and database design to testing, deployment, and cloud setup.',
+    color: '#D99A4C'
+  },
+  {
+    index: '03',
+    title: 'Design & UX Detail',
+    desc: 'Clear typography, cohesive design systems, and straightforward user flows.',
+    color: '#A855F7'
+  }
+];
 ---
 
 <section class="about-section section-padding" id="about" aria-label="About Philosophy">
@@ -20,29 +40,15 @@
       </div>
 
       <div class="about-pillars">
-        <div class="pillar-item">
-          <span class="pillar-index">01</span>
-          <div class="pillar-content">
-            <h3 class="pillar-title">Speed & Reliability</h3>
-            <p class="pillar-desc">Fast load times, responsive interfaces, and stable architecture across devices.</p>
+        {pillars.map((pillar) => (
+          <div class="pillar-item" style={`--pillar-color: ${pillar.color};`}>
+            <span class="pillar-index">{pillar.index}</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">{pillar.title}</h3>
+              <p class="pillar-desc">{pillar.desc}</p>
+            </div>
           </div>
-        </div>
-
-        <div class="pillar-item">
-          <span class="pillar-index">02</span>
-          <div class="pillar-content">
-            <h3 class="pillar-title">End-to-End Execution</h3>
-            <p class="pillar-desc">From initial prototyping and database design to testing, deployment, and cloud setup.</p>
-          </div>
-        </div>
-
-        <div class="pillar-item">
-          <span class="pillar-index">03</span>
-          <div class="pillar-content">
-            <h3 class="pillar-title">Design & UX Detail</h3>
-            <p class="pillar-desc">Clear typography, cohesive design systems, and straightforward user flows.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>
@@ -118,8 +124,9 @@
     font-family: var(--font-sans);
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--accent);
+    color: var(--pillar-color);
     padding-top: 0.1rem;
+    transition: color var(--duration-fast) var(--ease-premium);
   }
 
   .pillar-content {
