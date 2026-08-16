@@ -201,7 +201,7 @@ export function initGSAPAnimations() {
       stagger: 0.1,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.capabilities-table',
+        trigger: '.capabilities-list',
         start: 'top 85%',
         once: true,
       },
