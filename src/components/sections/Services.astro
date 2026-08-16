@@ -1,74 +1,76 @@
 ---
 const services = [
   {
-    index: '01',
-    title: 'Product Engineering',
-    category: 'Architecture & Delivery',
-    summary: 'End-to-end technical delivery from initial prototype to scalable production software.',
-    color: '#D99A4C'
+    index: "01",
+    title: "Product Engineering",
+    summary:
+      "End-to-end technical delivery from initial prototype to scalable production software.",
   },
   {
-    index: '02',
-    title: 'Full-Stack Web',
-    category: 'Web Apps & Landing Pages',
-    summary: 'Modern web applications, high-converting landing pages, and responsive UI systems.',
-    color: '#38BDF8'
+    index: "02",
+    title: "Full-Stack Web",
+    summary:
+      "Modern web applications, high-converting landing pages, and responsive UI systems.",
   },
   {
-    index: '03',
-    title: 'Mobile Development',
-    category: 'iOS & Android Apps',
-    summary: 'Cross-platform mobile apps engineered for offline reliability and native performance.',
-    color: '#A855F7'
+    index: "03",
+    title: "Mobile Development",
+    summary:
+      "Cross-platform mobile apps engineered for offline reliability and native performance.",
   },
   {
-    index: '04',
-    title: 'Realtime Systems',
-    category: 'Live Data & Messaging',
-    summary: 'Low-latency chat engines, presence tracking, and synchronized live data streams.',
-    color: '#10B981'
+    index: "04",
+    title: "Realtime Systems",
+    summary:
+      "Low-latency chat engines, presence tracking, and synchronized live data streams.",
   },
   {
-    index: '05',
-    title: 'Backend & Cloud',
-    category: 'APIs & Infrastructure',
-    summary: 'High-throughput APIs, relational database modeling, background queues, and cloud setup.',
-    color: '#E0234E'
+    index: "05",
+    title: "Backend & Cloud",
+    summary:
+      "High-throughput APIs, relational database modeling, background queues, and cloud setup.",
   },
   {
-    index: '06',
-    title: 'Artificial Intelligence',
-    category: 'LLM Integrations & AI',
-    summary: 'Conversational AI assistants, intelligent document parsing, and automated workflows.',
-    color: '#EC4899'
-  }
+    index: "06",
+    title: "Artificial Intelligence",
+    summary:
+      "Conversational AI assistants, intelligent document parsing, and automated workflows.",
+  },
 ];
 ---
 
-<section class="services-section section-padding" id="services" aria-label="Services & Technical Capabilities">
+<section
+  class="services-section section-padding"
+  id="services"
+  aria-label="Services & Technical Capabilities"
+>
   <div class="container">
     <div class="services-header">
       <h2 class="services-heading">Services.</h2>
-      <p class="services-subtext">Technical execution across web platforms, mobile applications, realtime infrastructure, and AI systems.</p>
+      <p class="services-subtext">
+        Technical execution across web platforms, mobile applications, realtime
+        infrastructure, and AI systems.
+      </p>
     </div>
 
-    <!-- Clean Typographic Bento Grid matching TechStack background & hover -->
+    <!-- Clean Typographic Bento Grid matching TechStack background & hover with Unified Accent -->
     <div class="services-grid">
-      {services.map((service) => (
-        <article class="service-card" style={`--card-accent: ${service.color};`}>
-          <div class="service-top">
-            <span class="service-index">{service.index}</span>
-            <span class="service-category">{service.category}</span>
-          </div>
+      {
+        services.map((service) => (
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-index">{service.index}</span>
+            </div>
 
-          <div class="service-content">
-            <h3 class="service-title">{service.title}</h3>
-            <p class="service-summary">{service.summary}</p>
-          </div>
+            <div class="service-content">
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-summary">{service.summary}</p>
+            </div>
 
-          <div class="service-ambient-glow" aria-hidden="true"></div>
-        </article>
-      ))}
+            <div class="service-ambient-glow" aria-hidden="true" />
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -115,42 +117,44 @@ const services = [
     justify-content: space-between;
     gap: 1.5rem;
     padding: 1.75rem 1.85rem;
-    background: linear-gradient(135deg, rgba(16, 20, 28, 0.6) 0%, rgba(10, 12, 16, 0.4) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(16, 20, 28, 0.6) 0%,
+      rgba(10, 12, 16, 0.4) 100%
+    );
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: transform var(--duration-normal) var(--ease-premium),
-                background-color var(--duration-normal) var(--ease-premium),
-                box-shadow var(--duration-normal) var(--ease-premium);
+    transition:
+      transform var(--duration-normal) var(--ease-premium),
+      background-color var(--duration-normal) var(--ease-premium),
+      box-shadow var(--duration-normal) var(--ease-premium);
   }
 
   .service-card:hover {
     transform: translateY(-4px);
-    background: linear-gradient(135deg, rgba(22, 28, 38, 0.8) 0%, rgba(14, 17, 24, 0.6) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(22, 28, 38, 0.8) 0%,
+      rgba(14, 17, 24, 0.6) 100%
+    );
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
   }
 
   .service-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
+    justify-content: flex-start;
   }
 
   .service-index {
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--card-accent, var(--accent));
-    background: rgba(255, 255, 255, 0.04);
+    color: var(--accent);
+    background: rgba(217, 154, 76, 0.1);
+    border: 1px solid rgba(217, 154, 76, 0.2);
     padding: 0.25rem 0.55rem;
     border-radius: var(--radius-sm);
-  }
-
-  .service-category {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-    letter-spacing: 0.02em;
   }
 
   .service-content {
@@ -170,7 +174,7 @@ const services = [
   }
 
   .service-card:hover .service-title {
-    color: var(--card-accent, var(--accent));
+    color: var(--accent);
   }
 
   .service-summary {
@@ -180,14 +184,18 @@ const services = [
     margin: 0;
   }
 
-  /* Exact TechStack Ambient Radial Glow */
+  /* Exact TechStack Ambient Radial Glow (Unified Gold Accent) */
   .service-ambient-glow {
     position: absolute;
     right: -20px;
     bottom: -20px;
     width: 90px;
     height: 90px;
-    background: radial-gradient(circle, var(--card-accent, var(--accent)) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      var(--accent) 0%,
+      transparent 70%
+    );
     opacity: 0;
     filter: blur(25px);
     pointer-events: none;
