@@ -1,25 +1,25 @@
 ---
 const experienceList = [
   {
-    period: '2025 — Present',
-    role: 'Principal Digital Product Engineer',
-    organization: 'Independent Consultant',
-    description: 'Partnering with founders and businesses to architect and launch high-performance web products, mobile applications, and automated workflows.',
-    deliverables: ['Product Architecture', 'Full-Stack Delivery', 'Technical Leadership']
+    period: '2026',
+    focus: 'Product Engineering',
+    subtitle: 'AI & Scalable Web Platforms',
+    description: 'Architecting end-to-end digital products, integrating intelligent AI workflows, and building high-performance, conversion-oriented web platforms.',
+    deliverables: ['AI Integrations', 'Product Architecture', 'High-Speed Web', 'System Reliability']
   },
   {
-    period: '2024 — 2025',
-    role: 'Lead Full-Stack Engineer',
-    organization: 'Enterprise & Financial Systems',
-    description: 'Led technical development of multi-tenant enterprise software, high-volume transactional platforms, and real-time inventory systems.',
-    deliverables: ['Custom ERP Software', 'Secure Payment Systems', 'Cloud Scaling']
+    period: '2025',
+    focus: 'Business Systems',
+    subtitle: 'Enterprise Platforms & Operations',
+    description: 'Engineering multi-tenant business software, custom ERP platforms, automated workflows, and high-security transactional infrastructure.',
+    deliverables: ['Custom ERP Systems', 'Cloud Infrastructure', 'Authentication & RBAC', 'Data Pipelines']
   },
   {
-    period: '2023 — 2024',
-    role: 'Senior Product & Mobile Engineer',
-    organization: 'Consumer Tech & Applications',
-    description: 'Built interactive mobile applications, user-facing messaging tools, and responsive digital products for high-traffic environments.',
-    deliverables: ['Mobile Apps', 'Realtime Features', 'UX Optimization']
+    period: '2024',
+    focus: 'Web & Mobile',
+    subtitle: 'Interactive Applications & UX',
+    description: 'Developing fluid cross-platform mobile apps, real-time communication tools, and conversion-focused responsive user interfaces.',
+    deliverables: ['Mobile Apps', 'Realtime Systems', 'UI/UX Design Systems', 'REST & GraphQL APIs']
   }
 ];
 ---
@@ -32,15 +32,15 @@ const experienceList = [
 
     <div class="experience-timeline">
       {experienceList.map((exp) => (
-        <div class="timeline-row reveal-fade-up">
+        <div class="timeline-row">
           <div class="timeline-period">
             <span class="period-text">{exp.period}</span>
           </div>
 
           <div class="timeline-main">
             <div class="role-org-group">
-              <h3 class="role-title">{exp.role}</h3>
-              <span class="org-name">{exp.organization}</span>
+              <h3 class="role-title">{exp.focus}</h3>
+              <span class="org-name">— {exp.subtitle}</span>
             </div>
             <p class="role-description">{exp.description}</p>
           </div>
@@ -79,15 +79,20 @@ const experienceList = [
   .experience-timeline {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: clamp(2rem, 3.5vw, 3.5rem);
   }
 
   .timeline-row {
     display: grid;
-    grid-template-columns: 220px 1.4fr 1fr;
+    grid-template-columns: 160px 1.4fr 1fr;
     gap: clamp(1.5rem, 3.5vw, 3.5rem);
-    padding: clamp(1.5rem, 2.5vw, 2rem) 0;
+    padding: clamp(1.5rem, 2.5vw, 2.25rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     align-items: start;
+  }
+
+  .timeline-row:last-child {
+    border-bottom: none;
   }
 
   .timeline-period {
@@ -97,9 +102,10 @@ const experienceList = [
 
   .period-text {
     font-family: var(--font-sans);
-    font-size: var(--text-sm);
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--accent);
+    letter-spacing: 0.02em;
   }
 
   .timeline-main {
@@ -125,6 +131,7 @@ const experienceList = [
   .org-name {
     font-size: var(--text-sm);
     color: var(--text-muted);
+    font-weight: 400;
   }
 
   .role-description {
@@ -147,6 +154,7 @@ const experienceList = [
     font-weight: 500;
     color: var(--text-muted);
     background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.04);
     padding: 0.35rem 0.65rem;
     border-radius: var(--radius-full);
   }
