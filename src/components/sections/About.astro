@@ -29,24 +29,17 @@ const pillars = [
       </h2>
     </div>
 
-    <div class="about-grid">
-      <div class="about-narrative">
-        <p class="narrative-lead">
-          I build digital products from prototype to production — delivering fast, scalable software with clean code and intuitive user flows.
-        </p>
-      </div>
-
-      <div class="about-pillars">
-        {pillars.map((pillar) => (
-          <div class="pillar-item" style={`--pillar-color: ${pillar.color};`}>
-            <span class="pillar-index">{pillar.index}</span>
-            <div class="pillar-content">
-              <h3 class="pillar-title">{pillar.title}</h3>
-              <p class="pillar-desc">{pillar.desc}</p>
-            </div>
+    <!-- 3 Horizontal Pillars across width -->
+    <div class="about-pillars">
+      {pillars.map((pillar) => (
+        <div class="pillar-item" style={`--pillar-color: ${pillar.color};`}>
+          <span class="pillar-index">{pillar.index}</span>
+          <div class="pillar-content">
+            <h3 class="pillar-title">{pillar.title}</h3>
+            <p class="pillar-desc">{pillar.desc}</p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -60,7 +53,7 @@ const pillars = [
 
   .about-header {
     max-width: 980px;
-    margin-bottom: clamp(3rem, 5vw, 4.5rem);
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
   }
 
   .about-statement {
@@ -77,36 +70,17 @@ const pillars = [
     display: inline-block;
   }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: clamp(3rem, 6vw, 6rem);
-    align-items: start;
-  }
-
-  .about-narrative {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .narrative-lead {
-    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
-    font-weight: 350;
-    color: var(--text-secondary);
-    line-height: 1.65;
-    letter-spacing: -0.01em;
-  }
-
+  /* 3-Column Horizontal Grid */
   .about-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
   }
 
   .pillar-item {
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 0.85rem;
   }
 
   .pillar-index {
@@ -114,18 +88,16 @@ const pillars = [
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--pillar-color);
-    padding-top: 0.1rem;
-    transition: color var(--duration-fast) var(--ease-premium);
   }
 
   .pillar-content {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.4rem;
   }
 
   .pillar-title {
-    font-size: 1.125rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--text-primary);
     letter-spacing: -0.01em;
@@ -138,9 +110,9 @@ const pillars = [
   }
 
   @media (max-width: 860px) {
-    .about-grid {
+    .about-pillars {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.25rem;
     }
   }
 </style>
