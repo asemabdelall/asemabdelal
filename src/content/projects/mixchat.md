@@ -1,13 +1,13 @@
 ---
 title: "MixChat"
-tagline: "Instant social communication platform with voice, video, and community channels"
+tagline: "Social communication platform with voice channels, media feed, and creator profiles"
 category: "Social Platform / Mobile & Web"
 year: "2025"
 role: "Lead Product & Full-Stack Engineer"
 featured: true
 order: 1
 image: "/images/mixchat.png"
-tags: ["Social Platform", "Realtime Chat", "Voice & Video", "Mobile Responsive", "High Speed"]
+tags: ["Social Platform", "Realtime Chat", "Voice Channels", "Mobile Responsive", "Clean UX"]
 accentColor: "#3B82F6"
-overview: "MixChat is a modern, ultra-fast social and community platform designed for seamless messaging, crystal-clear voice spaces, media sharing, and creator profiles."
+overview: "MixChat is a social communication platform designed for direct messaging, voice channels, photo and video feeds, and customizable user profiles."
 ---
